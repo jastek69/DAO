@@ -218,15 +218,11 @@ describe('DAO', () => {
                 transaction = await dao.connect(investor2).vote(1)
                 result = await transaction.wait()                
             })
-                
-            it('', async () => {
-
-            })
-            
+                           
             // *** AssertionError: Expected transaction to be reverted ***
-            // it('Rejects finalization if not enough votes', async () => {
-            //      await expect(dao.connect(investor1).finalizeProposal(1)).to.be.reverted
-            //  })
+            it('Rejects finalization if not enough votes', async () => {
+                await expect(dao.connect(investor1).finalizeProposal(1)).to.be.reverted
+            })
 
             it('Rejects finalization from a non-investor', async () => {
                 // Vote 3

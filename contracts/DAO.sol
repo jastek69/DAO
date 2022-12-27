@@ -77,15 +77,14 @@ function vote(uint256 _id) external onlyInvestor {
     // Fetch proposal from mapping by id
     Proposal storage proposal = proposals[_id];   // tell Solidity that you are reading the proposal out of storage and assigning it to the var porposal
 
-    // Update votes
-    // Token Weighted Voting = Weighted by amount of tokens held
-    // Whatever amt of Tokens a member has is the number of votes they get
-    proposal.votes += proposal.votes + token.balanceOf(msg.sender); // adding vote saves back to mapping
-
-
     // Don't let investors vote twice
     require(!votes[msg.sender][_id], "already voted");  // ! does the opposite so sets to false as in investor has not voted yet. once vote it's set to True
     
+    // Update votes
+    // Token Weighted Voting = Weighted by amount of tokens held
+    // Whatever amt of Tokens a member has is the number of votes they get
+    proposal.votes += token.balanceOf(msg.sender); // adding vote saves back to mapping
+   
     // Track that user has voted and only once
     votes[msg.sender][_id] = true;
 
@@ -95,8 +94,7 @@ function vote(uint256 _id) external onlyInvestor {
 
 // Finalize Proposal & transfer funds
 function finalizeProposal(uint256 _id) external onlyInvestor {
-
-    // Fetch Proposal
+    // Fetch Proposal from mapping by id
      Proposal storage proposal = proposals[_id];
 
     // Ensure proposal is not already finalized
@@ -115,7 +113,6 @@ function finalizeProposal(uint256 _id) external onlyInvestor {
     // Transfer funds
     (bool sent, ) = proposal.recipient.call{value: proposal.amount}("");  // This way can get the return values - meta data
     require(sent);
-
 
     // Emit event
     emit Finalize(_id);
