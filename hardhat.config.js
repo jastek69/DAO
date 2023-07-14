@@ -22,6 +22,10 @@ module.exports = {
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
       accounts: privateKeys.split(','),
+    },
+    canto: {
+      url: `https://canto-testnet.plexnode.wtf`,
+      accounts: privateKeys.split(',' ),
     }
   },
 };

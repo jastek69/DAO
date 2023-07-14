@@ -1,11 +1,26 @@
 {
-  "31337": {
+  "31337": {  
     "token": {
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+      "address": "0xc2d6B375E2a6cdDeFc95333921dd36aEB73B23c9"
     },
     "dao": {
-      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+      "address": "0x96f7c90294A2935CB576aF7EddB4Af17a7d1c24A"
     }
-  }
+  },
+  "11155111": {
+    "token": {
+      "address": "0xc2d6B375E2a6cdDeFc95333921dd36aEB73B23c9"
+    },
+    "dao": {
+      "address": "0x96f7c90294A2935CB576aF7EddB4Af17a7d1c24A"
+    }
+  },
+  "7701": {
+    "token": {
+      "address": "0xc2d6B375E2a6cdDeFc95333921dd36aEB73B23c9"
+    },
+    "dao": {
+      "address": "0x96f7c90294A2935CB576aF7EddB4Af17a7d1c24A"
+    }
+  } 
 }
-
