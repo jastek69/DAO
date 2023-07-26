@@ -1,6 +1,7 @@
 const { task } = require("hardhat/config");
 
 require("@nomicfoundation/hardhat-toolbox");
+// require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 
 const privateKeys = process.env.PRIVATE_KEYS || ""
@@ -26,6 +27,10 @@ module.exports = {
     canto: {
       url: `https://canto-testnet.plexnode.wtf`,
       accounts: privateKeys.split(',' ),
-    }
+    },
   },
+  etherscan: {
+    apiKey: {
+        sepolia:process.env.ETHERSCAN_API_KEY},
+    }
 };

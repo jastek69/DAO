@@ -15,7 +15,7 @@ const Navigation = ({ account }) => {
       <Navbar.Brand href="#">SOBEK DAO</Navbar.Brand>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-          {account}
+          {account.slice(0, 5) + '...' + account.slice(38, 42)}          
         </Navbar.Text>
       </Navbar.Collapse>
     </Navbar>
